@@ -1,13 +1,4 @@
-#adi-news
-npmnpm install express ejs body-parser fs
-/india-news
-│── /public             (Static Files - CSS, Images)
-│── /views              (HTML Templates - EJS)
-│── /routes             (Routes for News Pages)
-│── /data               (JSON File for News Storage)
-│── server.js           (Main Express.js Server File)
-│── package.json        (Dependencies & Scripts)
-│── README.md           (Project Guide)
+npm install express ejs body-parser fs
 const express = require("express");
 const fs = require("fs");
 const bodyParser = require("body-parser");
@@ -53,6 +44,14 @@ app.listen(PORT, () => {
         "date": "2025-02-28"
     }
 ]
+/adi-news
+│── /public             (Static Files - CSS, Images)
+│── /views              (HTML Templates - EJS)
+│── /routes             (Routes for News Pages)
+│── /data               (JSON File for News Storage)
+│── server.js           (Main Express.js Server File)
+│── package.json        (Dependencies & Scripts)
+│── README.md           (Project Guide)
 <!DOCTYPE html>
 <html lang="hi">
 <head>
