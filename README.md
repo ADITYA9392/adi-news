@@ -1,18 +1,12 @@
 npm install express ejs body-parser fs
-<!DOCTYPE html>
-<html lang="hi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= article.title %></title>
-</head>
-<body>
-    <h1><%= article.title %></h1>
-    <p><%= article.content %></p>
-    <p>तारीख: <%= article.date %></p>
-    <a href="/">होम पेज पर वापस जाएं</a>
-</body>
-</html>
+/india-news
+│── /public             (Static Files - CSS, Images)
+│── /views              (HTML Templates - EJS)
+│── /routes             (Routes for News Pages)
+│── /data               (JSON File for News Storage)
+│── server.js           (Main Express.js Server File)
+│── package.json        (Dependencies & Scripts)
+│── README.md           (Project Guide)
 const express = require("express");
 const fs = require("fs");
 const bodyParser = require("body-parser");
@@ -58,5 +52,37 @@ app.listen(PORT, () => {
         "date": "2025-02-28"
     }
 ]
-
-
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India News</title>
+    <link rel="stylesheet" href="/public/style.css">
+</head>
+<body>
+    <h1>ताज़ा खबरें</h1>
+    <ul>
+        <% news.forEach(article => { %>
+            <li>
+                <a href="/news/<%= article.id %>"><%= article.title %></a>
+                <p><%= article.date %></p>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= article.title %></title>
+</head>
+<body>
+    <h1><%= article.title %></h1>
+    <p><%= article.content %></p>
+    <p>तारीख: <%= article.date %></p>
+    <a href="/">होम पेज पर वापस जाएं</a>
+</body>
+</html>
