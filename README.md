@@ -17,7 +17,6 @@ const newsData = JSON.parse(fs.readFileSync("./data/news.json", "utf8"));
 app.get("/", (req, res) => {
     res.render("index", { news: newsData });
 });
-
 // Single News Page
 app.get("/news/:id", (req, res) => {
     const newsId = req.params.id;
@@ -25,7 +24,6 @@ app.get("/news/:id", (req, res) => {
     if (!article) return res.status(404).send("News Not Found!");
     res.render("news", { article });
 });
-
 // Start Server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
